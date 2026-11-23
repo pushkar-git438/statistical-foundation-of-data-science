@@ -1,17 +1,17 @@
-# Practical 9: K-Nearest Neighbors (KNN) Classification using Python
+# Practical 10: Principal Component Analysis (PCA) using Python
 
 ## Aim
-To perform Exploratory Data Analysis (EDA), feature scaling, and implement the K-Nearest Neighbors (KNN) algorithm to classify Iris flower species.
+To perform Exploratory Data Analysis (EDA), standardize the Wine dataset, and apply Principal Component Analysis (PCA) to reduce the dimensionality of the dataset.
 
 ## Dataset
-**Iris Dataset**
+**Wine Dataset**
 
-The Iris dataset contains measurements of three different species of flowers.
+The Wine dataset contains chemical measurements of wines belonging to three different classes.
 
-- Total records: 150
-- Total features: 4
-- Target variable: Species
-- Species: Setosa, Versicolor, Virginica
+- Total records: 178
+- Total features: 13
+- Target variable: Class
+- Classes: Class 0, Class 1, Class 2
 
 ## Libraries Used
 - Pandas
@@ -22,43 +22,32 @@ The Iris dataset contains measurements of three different species of flowers.
 
 ## Steps Performed
 1. Imported the required Python libraries.
-2. Loaded the Iris dataset and converted it into a Pandas DataFrame.
-3. Performed Exploratory Data Analysis (EDA) using `head()`, `describe()`, and `groupby()`.
-4. Separated independent features and the target variable.
-5. Divided the dataset into training and testing sets using an 80:20 ratio.
-6. Applied StandardScaler for feature scaling.
-7. Trained a KNN classifier using K = 3.
-8. Generated predictions for the test dataset.
-9. Evaluated the model using a confusion matrix, accuracy score, and classification report.
-10. Compared error rates for K values ranging from 1 to 20.
-11. Identified the best K value based on the minimum error rate.
+2. Loaded the Wine dataset and converted it into a Pandas DataFrame.
+3. Displayed the first five records and class names.
+4. Calculated basic statistical information using `describe()`.
+5. Created a boxplot to compare alcohol content across wine classes.
+6. Created a scatterplot to analyze the relationship between alcohol content and color intensity.
+7. Calculated and visualized the covariance matrix using a heatmap.
+8. Standardized the dataset using StandardScaler.
+9. Applied PCA to reduce the original 13 features to 2 principal components.
+10. Calculated the explained variance ratio and total variance explained.
+11. Visualized the wine classes using the first two principal components.
 
 ## Results
 
 | Parameter | Result |
 |---|---:|
-| Total Records | 150 |
-| Training Records | 120 |
-| Testing Records | 30 |
-| Initial K Value | 3 |
-| Accuracy (K = 3) | 93.33% |
-| Best K Value | 1 |
-| Minimum Error Rate | 3.33% |
-| Best Accuracy | 96.67% |
+| Total Records | 178 |
+| Original Features | 13 |
+| Wine Classes | 3 |
+| Principal Components | 2 |
+| Dimensionality Reduction | 13 to 2 |
 
-### Confusion Matrix (K = 3)
-
-| Actual / Predicted | Setosa | Versicolor | Virginica |
-|---|---:|---:|---:|
-| Setosa | 10 | 0 | 0 |
-| Versicolor | 0 | 10 | 0 |
-| Virginica | 0 | 2 | 8 |
-
-### Classification Report
-- Setosa: Precision 1.00, Recall 1.00
-- Versicolor: Precision 0.83, Recall 1.00
-- Virginica: Precision 1.00, Recall 0.80
-- Overall Accuracy: 93.33%
+### PCA Analysis
+- StandardScaler was used to bring all features to a comparable scale.
+- PCA transformed the original 13 features into 2 principal components.
+- The explained variance ratio was calculated to measure how much information each component retained.
+- A scatterplot was created to visualize the three wine classes in the reduced two-dimensional space.
 
 ## Conclusion
-The K-Nearest Neighbors algorithm was successfully implemented using the Iris dataset. Exploratory Data Analysis and feature scaling were performed before training the model. The classifier achieved 93.33% accuracy with K = 3. After comparing error rates for K values from 1 to 20, K = 1 was identified as the best value, achieving 96.67% accuracy on the test dataset.
+Exploratory Data Analysis and Principal Component Analysis were successfully performed on the Wine dataset. The dataset was standardized before applying PCA. The original 13 features were reduced to 2 principal components, making the data easier to visualize and analyze while retaining as much variance as possible in the two-dimensional representation.
